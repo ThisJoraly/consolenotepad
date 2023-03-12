@@ -26,12 +26,15 @@ public class Main {
                 }
                 case "!sq" -> {
                     try {
-
-
                         System.out.println("CN |Впишите название (с расширением файла)");
                         String fileName = scanner.nextLine();
+                        File pathfile = new File(path);
+                        if (!pathfile.exists()){
+                            pathfile.mkdirs();
+                        }
+
                         File file = new File(path + fileName);
-                        if(file.exists())
+                        if(!file.exists())
                             file.createNewFile();
                         PrintWriter pw = new PrintWriter(file);
                         pw.println(sb);
