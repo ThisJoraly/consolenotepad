@@ -1,5 +1,5 @@
 package me.joraly;
-
+//v1
 import java.util.Scanner;
 
 public class Main {
