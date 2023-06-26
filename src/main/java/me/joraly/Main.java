@@ -9,9 +9,9 @@ public class Main {
     static String s = File.separator;
     static String path = "src"+s+"main"+s+"resources"+s + "out"+ s;
     public static void main(String[] args) {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder fileText = new StringBuilder();
         Scanner scanner = new Scanner(System.in);
-        int i = 1;
+        int i = 1; //just Integer
 
         while(true) {
             int x = i;
@@ -19,14 +19,14 @@ public class Main {
             System.out.printf("%3s|", String.valueOf(x));
             String command = scanner.nextLine();
             i++;
-            switch (command){
+            switch (command){ //commands list
                 case "!q" -> {
                     scanner.close();
                     return;
                 }
                 case "!sq" -> {
                     try {
-                        System.out.println("CN |Впишите название (с расширением файла)");
+                        System.out.println("Enter file name with extension");
                         String fileName = scanner.nextLine();
                         File pathfile = new File(path);
                         if (!pathfile.exists()){
@@ -37,7 +37,7 @@ public class Main {
                         if(!file.exists())
                             file.createNewFile();
                         PrintWriter pw = new PrintWriter(file);
-                        pw.println(sb);
+                        pw.println(fileText);
                         pw.close();
                         return;
 
@@ -46,7 +46,7 @@ public class Main {
                     }
                 }
                 default -> {
-                    sb.append(command + "\n");
+                    fileText.append(command + "\n");
                 }
             }
         }
